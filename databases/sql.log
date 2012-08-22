@@ -1,0 +1,119 @@
+timestamp: 2012-08-22T09:36:28.554622
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2012-08-22T09:36:28.666251
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-08-22T09:36:28.731537
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-08-22T09:36:28.844451
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2012-08-22T09:36:28.908943
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-08-22T09:36:28.988805
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2012-08-22T09:36:29.057316
+CREATE TABLE skilltab(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    category CHAR(512),
+    skillname CHAR(512)
+);
+success!
+timestamp: 2012-08-22T09:36:29.124014
+CREATE TABLE userskill(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userid CHAR(512),
+    skill CHAR(512),
+    score INTEGER
+);
+success!
+timestamp: 2012-08-22T09:59:05.925309
+ALTER TABLE userskill ADD username CHAR(512);
+timestamp: 2012-08-22T09:59:06.026836
+ALTER TABLE userskill ADD category CHAR(512);
+timestamp: 2012-08-22T10:47:50.470290
+CREATE TABLE tester(
+    id INTEGER PRIMARY KEY AUTOINCREMENT
+);
+success!
+timestamp: 2012-08-22T10:49:31.470270
+ALTER TABLE userskill ADD numchucks CHAR(512);
+timestamp: 2012-08-22T11:32:44.691299
+ALTER TABLE tester ADD java CHAR(512);
+timestamp: 2012-08-22T11:32:44.852385
+ALTER TABLE tester ADD python CHAR(512);
+timestamp: 2012-08-22T11:32:44.935748
+ALTER TABLE tester ADD selenium CHAR(512);
+timestamp: 2012-08-22T11:32:45.010731
+ALTER TABLE tester ADD business_knowledge CHAR(512);
+timestamp: 2012-08-22T11:32:45.094095
+ALTER TABLE tester ADD cucumber CHAR(512);
+timestamp: 2012-08-22T11:32:45.211356
+ALTER TABLE tester ADD accounting CHAR(512);
+timestamp: 2012-08-22T11:32:45.327425
+ALTER TABLE tester ADD ruby CHAR(512);
+timestamp: 2012-08-22T11:32:45.435737
+ALTER TABLE tester ADD junit CHAR(512);
+timestamp: 2012-08-22T11:32:45.527435
+ALTER TABLE tester ADD soft_skills CHAR(512);
+timestamp: 2012-08-22T11:36:40.463391
+ALTER TABLE userskill ADD java CHAR(512);
+timestamp: 2012-08-22T11:36:40.678884
+ALTER TABLE userskill ADD python CHAR(512);
+timestamp: 2012-08-22T11:36:40.778864
+ALTER TABLE userskill ADD selenium CHAR(512);
+timestamp: 2012-08-22T11:36:40.895573
+ALTER TABLE userskill ADD business_knowledge CHAR(512);
+timestamp: 2012-08-22T11:36:40.995506
+ALTER TABLE userskill ADD cucumber CHAR(512);
+timestamp: 2012-08-22T11:36:41.096229
+ALTER TABLE userskill ADD accounting CHAR(512);
+timestamp: 2012-08-22T11:36:41.212203
+ALTER TABLE userskill ADD ruby CHAR(512);
+timestamp: 2012-08-22T11:36:41.303890
+ALTER TABLE userskill ADD junit CHAR(512);
+timestamp: 2012-08-22T11:36:41.395531
+ALTER TABLE userskill ADD soft_skills CHAR(512);
+timestamp: 2012-08-22T11:43:31.892314
+ALTER TABLE userskill ADD name CHAR(512);
